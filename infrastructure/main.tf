@@ -33,14 +33,26 @@ terraform {
   }
 }
 
-provider "google" {
-  project = var.project_id
-  region  = var.region
-}
+   locals {
+     common_labels = {
+       app        = "creative-studio"
+       customer   = "suitebriar-demo"
+       env        = var.environment
+       owner      = "mathew-igleheart"
+       managed-by = "terraform"
+     }
+   }
 
-provider "google-beta" {
-  project = var.project_id
-  region  = var.region
-}
+   provider "google" {
+     project        = var.project_id
+     region         = var.region
+     default_labels = local.common_labels
+   }
+
+   provider "google-beta" {
+     project        = var.project_id
+     region         = var.region
+     default_labels = local.common_labels
+   }
 
 # check app.tf, storage.tf, and network.tf if you're looking for the crux of this module
