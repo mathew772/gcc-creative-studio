@@ -52,6 +52,7 @@ module "compute" {
     BACKEND_URL              = local.backend_url
     WORKFLOWS_EXECUTOR_URL   = "${local.backend_url}/api/workflows-executor"
     SIGNING_SA_EMAIL         = google_service_account.bucket_reader_sa.email
+    IDENTITY_PLATFORM_ALLOWED_ORGS = "demo.suitebriar.com,suitebriar.com"
   }
 
   runtime_secrets = {
