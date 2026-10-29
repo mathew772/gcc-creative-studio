@@ -53,6 +53,8 @@ module "compute" {
     WORKFLOWS_EXECUTOR_URL   = "${local.backend_url}/api/workflows-executor"
     SIGNING_SA_EMAIL         = google_service_account.bucket_reader_sa.email
     IDENTITY_PLATFORM_ALLOWED_ORGS = "demo.suitebriar.com,suitebriar.com"
+    GEMINI_MODEL_ID                = var.gemini_model_id
+    GEMINI_AUDIO_ANALYSIS_MODEL_ID = "gemini-3.5-flash"
   }
 
   runtime_secrets = {
