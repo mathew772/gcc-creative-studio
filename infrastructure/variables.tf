@@ -163,6 +163,11 @@ variable "db_tier" {
   default     = "db-custom-2-7680"
 }
 
+   variable "gemini_model_id" {
+     type        = string
+     default     = "gemini-4-argon"
+     description = "Helper model for prompt enhancement, brand guideline extraction and audio analysis. Set per deployment."
+   }
 variable "db_availability_type" {
   type        = string
   description = "The availability type for the Cloud SQL instance (ZONAL or REGIONAL)."
